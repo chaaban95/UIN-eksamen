@@ -6,9 +6,9 @@ const serviceFields = `
     slogan,
     'image': mainImage{alternativeText, caption, asset->{url}},
     'category': category->title,
-    'initialContent',
+    InitialContent,
     preAmble,
-    text,
+    PortableText,
     box,
 `
 
@@ -19,7 +19,8 @@ export const getServices = async () => {
 
 export const getService = async (slug) => {
     const data = await client.fetch(
-        `*[_type == "service" && slug.current == $slug]{${serviceFields}}`,
+        `*[_type == "service" && slug.current == $slug]{${serviceFields}
+        PortableText[]{...}}`,
         { slug }
     )
     return data?.[0]

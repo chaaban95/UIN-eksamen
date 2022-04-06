@@ -6,8 +6,8 @@ import schemaTypes from 'all:part:@sanity/base/schema-type'
 
 import service from './documents/service'
 import category from './documents/category'
-import PortableText from './objects/PortableText'
 import InitialContent from './objects/InitialContent'
+import PortableText from './objects/PortableText'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -19,7 +19,7 @@ export default createSchema({
     /* Your types here! */
     service,
     category,
-    PortableText,
     InitialContent,
+    PortableText,
   ]),
 })
