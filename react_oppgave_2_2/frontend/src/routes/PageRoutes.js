@@ -5,11 +5,14 @@ import Services from '../pages/Services'
 import Service from '../pages/Service'
 import Layout from '../layout/Layout'
 import Create from '../pages/Create'
+import Footer from '../components/Footer'
+import Hero from '../components/Hero'
 
 export default function PageRoutes() {
   return (
     <Router>
       <Navigation />
+      <Hero />
       <Routes>
         <Route element={<Layout />}>
           <Route index element={<Services />} />
@@ -22,6 +25,7 @@ export default function PageRoutes() {
           <Route path="*" element={<ErrorPage />} />
         </Route>
       </Routes>
+      <Footer />
     </Router>
   )
 }
