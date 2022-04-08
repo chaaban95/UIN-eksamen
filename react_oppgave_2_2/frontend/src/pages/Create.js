@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { hexColors } from '../data/services'
-import { newServices } from '../lib/services/newService'
+import { newServices } from '../lib/services/newServices'
 
 // TODO: Denne egner seg for /ny
 
@@ -34,22 +34,6 @@ export default function Create() {
     onSubmit({ title, slug, slogan, preAmble, box })
   }
 
-  const handleTitleChange = (event) => {
-    setTitle(event.target.value)
-  }
-  const handleSlugChange = (event) => {
-    setSlug(event.target.value)
-  }
-  const handleSloganChange = (event) => {
-    setSlogan(event.target.value)
-  }
-  const handlePreAmbleChange = (event) => {
-    setPreAmble(event.target.value)
-  }
-  const handleBoxChange = (event) => {
-    setBox(event.target.value)
-  }
-
   return (
     <main>
       <h2 data-testid="title">Ny tjeneste</h2>
@@ -58,7 +42,7 @@ export default function Create() {
         <span>CEO, Tjenesteweb</span>
       </section>
       {/* TODO: Gjør det mulig å sende skjema med alt av verdier */}
-      <form data-testid="form" onSubmit={handleSubmit} method="POST">
+      <form data-testid="form" onSubmit={handleSubmit} method="POST" action="#">
         <label htmlFor="title">
           <span>Tittel*</span>
           <input
@@ -67,7 +51,7 @@ export default function Create() {
             name="title"
             id="title"
             value={title}
-            onChange={handleTitleChange}
+            onChange={(event) => setTitle(event.target.value)}
             required
           />
         </label>
@@ -79,7 +63,7 @@ export default function Create() {
             name="slug"
             id="slug"
             value={slug}
-            onChange={handleSlugChange}
+            onChange={(event) => setSlug(event.target.value)}
             required
           />
         </label>
@@ -91,7 +75,7 @@ export default function Create() {
             name="preAmble"
             id="preAmble"
             value={preAmble}
-            onChange={handlePreAmbleChange}
+            onChange={(event) => setPreAmble(event.target.value)}
             required
           />
         </label>
@@ -103,7 +87,7 @@ export default function Create() {
             name="slogan"
             id="slogan"
             value={slogan}
-            onChange={handleSloganChange}
+            onChange={(event) => setSlogan(event.target.value)}
             required
           />
         </label>
@@ -114,7 +98,7 @@ export default function Create() {
             name="box"
             id="box"
             value={box}
-            onChange={handleBoxChange}
+            onChange={(event) => setBox(event.target.value)}
             required
           >
             <option disabled value="">
@@ -134,7 +118,7 @@ export default function Create() {
         {error ? (
           <p data-testid="form_error">Fyll ut alle felter med *</p>
         ) : null}
-        {success ? <p data-testid="form_success">Skjema sendt</p> : null}
+        {success ? <p data-testid="form_success">Tjeneste er lagret</p> : null}
       </form>
     </main>
   )

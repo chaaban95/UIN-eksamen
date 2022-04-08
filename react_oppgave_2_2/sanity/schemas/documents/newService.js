@@ -38,12 +38,12 @@ export default {
   ],
   preview: {
     select: {
-      name: "newService",
+      title: "title",
       created: "_createdAt",
     },
     prepare({ title, created }) {
       return {
-        title: `Tittel: ${title}`,
+        title,
         subtitle: `Dato: ${created ? new Date(created).toDateString() : null}`,
       };
     },

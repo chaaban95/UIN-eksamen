@@ -1,7 +1,7 @@
 import client from '../client'
 
-export const newServices = async (PortableText) => {
-  const { title, slug, slogan, preAmble, box } = PortableText
+export const newServices = async (body) => {
+  const { title, slug, slogan, preAmble, box } = body
 
   try {
     await client.create({
