@@ -8,6 +8,7 @@ import service from "./documents/service";
 import category from "./documents/category";
 import InitialContent from "./objects/InitialContent";
 import PortableText from "./objects/PortableText";
+import newService from "./documents/newService";
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -21,5 +22,6 @@ export default createSchema({
     category,
     InitialContent,
     PortableText,
+    newService,
   ]),
 });

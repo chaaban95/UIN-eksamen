@@ -27,8 +27,8 @@ export default function Services() {
     getServicesData()
   }, [])
 
-  if (!data && error) return <div>Noe gikk galt..</div>
-  if (!data && loading) return <div>Henter data.. </div>
+  if (error) return <div>Noe gikk galt..</div>
+  if (loading) return <div>Henter data.. </div>
 
   return (
     <>

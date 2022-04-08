@@ -1,3 +1,5 @@
+import Title from '../components/Title'
+
 export default function ErrorPage() {
-  return <h1>404 - Siden du leter etter finnes ikke</h1>
+  return <Title title="404 - Siden du leter etter finnes ikke" />
 }
