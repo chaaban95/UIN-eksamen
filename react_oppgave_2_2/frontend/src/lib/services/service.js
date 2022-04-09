@@ -4,7 +4,6 @@ const serviceFields = `
     title,
     'slug': slug.current,
     slogan,
-    'image': mainImage{alternativeText, caption, asset->{url}},
     'category': category->title,
     InitialContent,
     preAmble,

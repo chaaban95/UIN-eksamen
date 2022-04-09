@@ -23,7 +23,7 @@ export default function Create() {
       await newServices(data)
       setSuccess(true)
     } catch (error) {
-      setError(error.message)
+      setError(error)
     } finally {
       setLoading(false)
     }
@@ -118,7 +118,7 @@ export default function Create() {
         {error ? (
           <p data-testid="form_error">Fyll ut alle felter med *</p>
         ) : null}
-        {success ? <p data-testid="form_success">Tjeneste er lagret</p> : null}
+        {success ? <p data-testid="form_success">Tjenesten er lagret</p> : null}
       </form>
     </main>
   )
