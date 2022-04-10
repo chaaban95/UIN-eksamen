@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import { hexColors } from '../data/services'
 import { newServices } from '../lib/services/newServices'
@@ -13,6 +14,7 @@ export default function Create() {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(false)
   const [success, setSuccess] = useState(false)
+  const navigate = useNavigate()
 
   const onSubmit = async (data) => {
     setLoading(true)
@@ -25,7 +27,10 @@ export default function Create() {
     } catch (error) {
       setError(error)
     } finally {
-      setLoading(false)
+      setTimeout(() => {
+        setLoading(false)
+        navigate('/services')
+      }, 500)
     }
   }
 

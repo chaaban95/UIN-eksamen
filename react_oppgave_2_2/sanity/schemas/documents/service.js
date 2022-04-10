@@ -8,12 +8,14 @@ export default {
       title: "Title",
       type: "string",
       description: "The title of the service",
+      validation: (Rule) => Rule.required(),
     },
     {
       name: "slug",
       title: "Slug",
       type: "slug",
       description: "The unique and last part of the url",
+      validation: (Rule) => Rule.required(),
       options: {
         source: "title",
         maxLength: 96,
@@ -23,6 +25,7 @@ export default {
       name: "slogan",
       title: "Slogan",
       type: "string",
+      validation: (Rule) => Rule.required(),
     },
     {
       name: "mainImage",
@@ -43,11 +46,13 @@ export default {
       title: "Preamble",
       type: "string",
       description: "Preface/introduction",
+      validation: (Rule) => Rule.required(),
     },
     {
       name: "InitialContent",
       title: "Initial Content",
       type: "InitialContent",
+      validation: (Rule) => Rule.required(),
     },
     {
       name: "PortableText",
@@ -58,6 +63,7 @@ export default {
       name: "box",
       title: "Box",
       type: "string",
+      validation: (Rule) => Rule.required(),
     },
   ],
 
