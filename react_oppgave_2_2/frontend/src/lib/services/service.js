@@ -12,13 +12,15 @@ const serviceFields = `
 `
 
 export const getServices = async () => {
-  const data = await client.fetch(`*[_type == "service"]{${serviceFields}}`)
+  const data = await client.fetch(
+    `*[_type in ["service", "newService"]]{${serviceFields}}`
+  )
   return data
 }
 
 export const getService = async (slug) => {
   const data = await client.fetch(
-    `*[_type == "service" && slug.current == $slug]{${serviceFields}
+    `*[_type in ["service", "newService"] && slug.current == $slug]{${serviceFields}
         PortableText[]{...}}`,
     { slug }
   )

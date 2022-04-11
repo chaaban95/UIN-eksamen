@@ -14,6 +14,8 @@ export default function Create() {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(false)
   const [success, setSuccess] = useState(false)
+  const [errorMessage, setErrorMessage] = useState(false)
+
   const navigate = useNavigate()
 
   const onSubmit = async (data) => {
@@ -25,7 +27,7 @@ export default function Create() {
       await newServices(data)
       setSuccess(true)
     } catch (error) {
-      setError(error)
+      setError(error.message)
     } finally {
       setTimeout(() => {
         setLoading(false)
@@ -120,7 +122,8 @@ export default function Create() {
           {loading ? 'Lager...' : 'Lag tjeneste'}
         </button>
         {/* TODO: Vis riktig p avhengig av tilstanden */}
-        {error ? (
+        {error ? <p>{error}</p> : null}
+        {errorMessage ? (
           <p data-testid="form_error">Fyll ut alle felter med *</p>
         ) : null}
         {success ? <p data-testid="form_success">Tjenesten er lagret</p> : null}
