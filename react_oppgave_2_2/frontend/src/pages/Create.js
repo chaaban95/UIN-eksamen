@@ -14,6 +14,7 @@ export default function Create() {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(false)
   const [success, setSuccess] = useState(false)
+  const [errorMessage, setErrorMessage] = useState(false)
 
   const navigate = useNavigate()
 
@@ -37,7 +38,20 @@ export default function Create() {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    onSubmit({ title, slug, slogan, preAmble, box })
+    if (title.length < 1) {
+      setErrorMessage(true)
+    } else if (slug.length < 1) {
+      setErrorMessage(true)
+    } else if (slogan.length < 1) {
+      setErrorMessage(true)
+    } else if (preAmble.length < 1) {
+      setErrorMessage(true)
+    } else if (box.length < 1) {
+      setErrorMessage(true)
+    } else {
+      setErrorMessage(false)
+      onSubmit({ title, slug, slogan, preAmble, box })
+    }
   }
 
   return (
@@ -58,7 +72,7 @@ export default function Create() {
             id="title"
             value={title}
             onChange={(event) => setTitle(event.target.value)}
-            required
+            //required
           />
         </label>
         <label htmlFor="slug">
@@ -70,7 +84,7 @@ export default function Create() {
             id="slug"
             value={slug}
             onChange={(event) => setSlug(event.target.value)}
-            required
+            //required
           />
         </label>
         <label htmlFor="preAmble">
@@ -82,7 +96,7 @@ export default function Create() {
             id="preAmble"
             value={preAmble}
             onChange={(event) => setPreAmble(event.target.value)}
-            required
+            //required
           />
         </label>
         <label htmlFor="slogan">
@@ -94,7 +108,7 @@ export default function Create() {
             id="slogan"
             value={slogan}
             onChange={(event) => setSlogan(event.target.value)}
-            required
+            //required
           />
         </label>
         <label htmlFor="box">
@@ -105,7 +119,7 @@ export default function Create() {
             id="box"
             value={box}
             onChange={(event) => setBox(event.target.value)}
-            required
+            //required
           >
             <option disabled value="">
               Velg hex-farge
@@ -122,6 +136,9 @@ export default function Create() {
         </button>
         {/* TODO: Vis riktig p avhengig av tilstanden */}
         {error ? <p>{error}</p> : null}
+        {errorMessage ? (
+          <p data-testid="form_error">Fyll ut alle felter med *</p>
+        ) : null}
         {success ? <p data-testid="form_success">Tjenesten er lagret</p> : null}
       </form>
     </main>
