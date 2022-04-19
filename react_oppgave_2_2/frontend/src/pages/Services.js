@@ -11,6 +11,8 @@ export default function Services() {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
 
+  const [searchFilter, setSearchFilter] = useState('')
+
   useEffect(() => {
     setError(null)
     const getServicesData = async () => {
@@ -33,8 +35,8 @@ export default function Services() {
   return (
     <>
       <Title title="Alle tjenester" />
-      <Filter />
-      <Card data={data} />
+      <Filter searchFilter={searchFilter} setSearchFilter={setSearchFilter} />
+      <Card data={data} searchFilter={searchFilter} />
     </>
   )
 }

@@ -72,7 +72,7 @@ export default function Create() {
             id="title"
             value={title}
             onChange={(event) => setTitle(event.target.value)}
-            //required
+            // required
           />
         </label>
         <label htmlFor="slug">
@@ -84,7 +84,7 @@ export default function Create() {
             id="slug"
             value={slug}
             onChange={(event) => setSlug(event.target.value)}
-            //required
+            // required
           />
         </label>
         <label htmlFor="preAmble">
@@ -96,7 +96,7 @@ export default function Create() {
             id="preAmble"
             value={preAmble}
             onChange={(event) => setPreAmble(event.target.value)}
-            //required
+            // required
           />
         </label>
         <label htmlFor="slogan">
@@ -108,7 +108,7 @@ export default function Create() {
             id="slogan"
             value={slogan}
             onChange={(event) => setSlogan(event.target.value)}
-            //required
+            // required
           />
         </label>
         <label htmlFor="box">
@@ -119,7 +119,7 @@ export default function Create() {
             id="box"
             value={box}
             onChange={(event) => setBox(event.target.value)}
-            //required
+            // required
           >
             <option disabled value="">
               Velg hex-farge
