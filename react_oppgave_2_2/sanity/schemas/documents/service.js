@@ -36,17 +36,17 @@ export default {
       },
     },
     {
-      name: "category",
-      title: "Category",
-      type: "reference",
-      to: [{ type: "category" }],
-    },
-    {
       name: "preAmble",
       title: "Preamble",
       type: "string",
       description: "Preface/introduction",
       validation: (Rule) => Rule.required(),
+    },
+    {
+      name: "category",
+      title: "Category",
+      type: "reference",
+      to: [{ type: "category" }],
     },
     {
       name: "InitialContent",

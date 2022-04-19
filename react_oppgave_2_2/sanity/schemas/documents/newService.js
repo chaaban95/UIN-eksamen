@@ -31,6 +31,17 @@ export default {
       description: "Preface/introduction",
     },
     {
+      name: "category",
+      title: "Category",
+      type: "reference",
+      to: [{ type: "category" }],
+    },
+    {
+      name: "PortableText",
+      title: "Text",
+      type: "PortableText",
+    },
+    {
       name: "box",
       title: "Box",
       type: "string",
