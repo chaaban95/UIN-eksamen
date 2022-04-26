@@ -10,17 +10,17 @@
   <body>
     <!-- Skal kun legge til css-klasser i HTML-en under (hvis behov) -->
     <main>
-      <ul>
+      <ul id="myList">
         <!-- Skal bruke li til å vise usorterte / sorterte tall via JavaScript -->
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
+        <li id="numberOne"></li>
+        <li id="numberTwo"></li>
+        <li id="numberThree"></li>
+        <li id="numberFour"></li>
       </ul>
       <!-- Skal bruke knapper til å legge til / sorterte tall via JavaScript -->
       <div>
-        <button id="add">Add numbers</button>
-        <button id="sort">Sorter</button>
+        <button id="add" onclick="buttonAdd()">Add numbers</button>
+        <button id="sort" onclick="buttonSort()">Sorter</button>
       </div>
     </main>
     <script src="./main.js"></script>
