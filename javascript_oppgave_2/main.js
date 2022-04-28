@@ -33,5 +33,74 @@ const wordList = [
   "Dra",
 ];
 
+
 // #### START HER ####
-const startHere = "Her kommer din kode";
+// Listen hvor vi skal plassere 4 unike ord fra wordList
+let randomWordArr = [];
+// Listen over tallene vi skriver inn i input feltene
+let guessNumberArr = [];
+// Listen av de fire ordene men sortert alfabetisk
+let sortWordArr = [];
+let originalWordArr = [];
+let wordCompareArr = [];
+
+//Funksjonen som skjer når knappen trykkes
+function buttonTest() {
+  //Hver gang vi trykker på knappen ønsker vi å starte med en blank liste
+  randomWordArr = [];
+  //Fjerner verdier som ligger inne i input feltet fra tidligere forsøk
+  document.getElementById("inputOne").value = "";
+  document.getElementById("inputTwo").value = "";
+  document.getElementById("inputThree").value = "";
+  document.getElementById("inputFour").value = "";
+  //Denne funksjonen skal skjøres hver gang knappen trykkes
+  generateNumber(4, 25);
+  //Vi har generert 4 unike tall mellom 0-24, de tallene bruker vi til å hente ordene som befinner seg på de ulike indeksene
+  document.getElementById("spanOne").innerHTML = wordList[randomWordArr[0]];
+  document.getElementById("spanTwo").innerHTML = wordList[randomWordArr[1]];
+  document.getElementById("spanThree").innerHTML = wordList[randomWordArr[2]];
+  document.getElementById("spanFour").innerHTML = wordList[randomWordArr[3]];
+  //Vi har enda ikke en liste med kun de fire ordene, vi har kun en med tall så denne listen inneholder de 4 ordene som ble valgt
+  sortWordArr = [wordList[randomWordArr[0]], wordList[randomWordArr[1]], wordList[randomWordArr[2]], wordList[randomWordArr[3]]];
+  originalWordArr = [wordList[randomWordArr[0]], wordList[randomWordArr[1]], wordList[randomWordArr[2]], wordList[randomWordArr[3]]];
+  //Etter listen er laget så sorterer vi listen alfabetisk
+  sortWordArr.sort();
+  //Her ser vi hvordan listen ser ut, man kan console logge før sort også for å se at sort faktisk gjør det den skal. 
+  console.log(sortWordArr);
+}
+//Funksjon som genererer 4 unike og tilfeldige tall mellom 0-24 som er ment å representere ideksene i wordList
+function generateNumber() {
+  while (randomWordArr.length < 4) {
+    let numberCheck = Math.floor(Math.random() * 25)
+    if(randomWordArr.indexOf(numberCheck) === -1) randomWordArr.push(numberCheck)
+  }  
+}
+//Denne funksjonen skjer hver gang man endrer et av input feltene, når det skjer en endring så må vi sjekke om kombinasjonen er riktig, eller feil og eventuelt hva som er feil. 
+function checkForChange() {
+  // Her lager vi en ny liste, hver gang vi oppdaterer input feltene så blir verdien i input feltet lagt inn i listen. 
+  guessNumberArr[0] = document.getElementById("inputOne").value
+  guessNumberArr[1] = document.getElementById("inputTwo").value
+  guessNumberArr[2] = document.getElementById("inputThree").value
+  guessNumberArr[3] = document.getElementById("inputFour").value
+
+  console.log(guessNumberArr);
+  wordCompareArr.splice(0, 1, originalWordArr[guessNumberArr.indexOf("1")]);
+  wordCompareArr.splice(1, 1, originalWordArr[guessNumberArr.indexOf("2")]);
+  wordCompareArr.splice(2, 1, originalWordArr[guessNumberArr.indexOf("3")]);
+  wordCompareArr.splice(3, 1, originalWordArr[guessNumberArr.indexOf("4")]);
+
+  if (wordCompareArr.length === 4) {
+    
+    console.log(wordCompareArr);
+    
+    if (JSON.stringify(sortWordArr) === JSON.stringify(wordCompareArr)) {
+      console.log("you won");
+    }
+    else {
+      console.log("Wrong combination, try again")
+    }
+  }
+  
+  
+}
+
