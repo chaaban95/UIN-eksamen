@@ -5,6 +5,10 @@ export default function Navigation() {
     borderBottom: isActive ? '2px solid currentColor' : 'none',
   })
 
+  const linkStyle2 = ({ isActive }) => ({
+    backgroundColor: isActive ? 'mediumturquoise' : 'teal',
+  })
+
   return (
     <header>
       <nav>
@@ -24,8 +28,13 @@ export default function Navigation() {
             </NavLink>
           </li>
           <li data-testid="nav_new">
-            <NavLink style={linkStyle} to="new" data-testid="create_link">
-              Ny
+            <NavLink
+              style={linkStyle2}
+              className="btn"
+              to="new"
+              data-testid="create_link"
+            >
+              Ny tjeneste
             </NavLink>
           </li>
         </ul>
