@@ -2,7 +2,7 @@ export default function Filter({ searchFilter, setSearchFilter }) {
   return (
     <>
       {/* TODO: Få filter til å virke */}
-      <label htmlFor="search">
+      <label className="search" htmlFor="search">
         Søk:
         <input
           data-testid="search"

@@ -22,7 +22,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 40px;
+  padding: 20px 50px;
   font-weight: 600;
 }
 
@@ -53,7 +53,7 @@ nav ul {
   background-color: #ebf0f4;
   display: flex;
   justify-content: space-between;
-  padding: 30px 40px;
+  padding: 30px 50px;
 }
 
 .cite {
@@ -66,11 +66,34 @@ nav ul {
 .ceo {
   display: block;
   font-weight: bold;
-  font-size: 12px;
+  font-size: 16px;
   margin-top: 10px;
 }
 
 .circles {
   margin-right: 55px;
   max-width: 150px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 30px 50px 10px;
+}
+
+.search {
+  margin-left: 50px;
+}
+
+.services {
+  padding: 10px 50px 20px;
+}
+
+.service {
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 100px 50px 20px 50px;
 }

@@ -8,10 +8,14 @@ export default function Card({ data, searchFilter }) {
 
   searchFilter ? (filteredData = filtered) : (filteredData = data)
   return (
-    <section data-testid="services">
+    <section className="services" data-testid="services">
       {/* TODO: Bruk .map til å skrive ut tjenester */}
       {filteredData.map((service) => (
-        <article key={service.slug} data-testid="service_wrapper">
+        <article
+          className="service"
+          key={service.slug}
+          data-testid="service_wrapper"
+        >
           <h3 data-testid="services_title">{service?.title}</h3>
           <p data-testid="services_preamble">{service?.preAmble}</p>
           <Link to={`/services/${service.slug}`} data-testid="services_url">
