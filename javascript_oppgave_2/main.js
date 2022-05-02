@@ -75,6 +75,7 @@ function generateNumber() {
     if(randomWordArr.indexOf(numberCheck) === -1) randomWordArr.push(numberCheck)
   }  
 }
+
 //Denne funksjonen skjer hver gang man endrer et av input feltene, når det skjer en endring så må vi sjekke om kombinasjonen er riktig, eller feil og eventuelt hva som er feil. 
 function checkForChange() {
   // Her lager vi en ny liste, hver gang vi oppdaterer input feltene så blir verdien i input feltet lagt inn i listen. 
@@ -84,12 +85,18 @@ function checkForChange() {
   guessNumberArr[3] = document.getElementById("inputFour").value
 
   console.log(guessNumberArr);
-  wordCompareArr.splice(0, 1, originalWordArr[guessNumberArr.indexOf("1")]);
-  wordCompareArr.splice(1, 1, originalWordArr[guessNumberArr.indexOf("2")]);
-  wordCompareArr.splice(2, 1, originalWordArr[guessNumberArr.indexOf("3")]);
-  wordCompareArr.splice(3, 1, originalWordArr[guessNumberArr.indexOf("4")]);
-
-  if (wordCompareArr.length === 4) {
+  if (guessNumberArr.indexOf("1") !== -1 || guessNumberArr.indexOf("2") !== -1 || guessNumberArr.indexOf("3") !== -1 || guessNumberArr.indexOf("4") !== -1) {
+    wordCompareArr.splice(0, 1, originalWordArr[guessNumberArr.indexOf("1")]);
+    wordCompareArr.splice(1, 1, originalWordArr[guessNumberArr.indexOf("2")]);
+    wordCompareArr.splice(2, 1, originalWordArr[guessNumberArr.indexOf("3")]);
+    wordCompareArr.splice(3, 1, originalWordArr[guessNumberArr.indexOf("4")]);
+  }
+  
+  if (isNaN(guessNumberArr[0]) || isNaN(guessNumberArr[1]) || isNaN(guessNumberArr[2]) || isNaN(guessNumberArr[3])   ) {
+    console.log("Please type in numbers from 1 to 4");
+  }
+  
+  if (guessNumberArr.indexOf("1") !== -1 && guessNumberArr.indexOf("2") !== -1 && guessNumberArr.indexOf("3") !== -1 && guessNumberArr.indexOf("4") !== -1) {
     
     console.log(wordCompareArr);
     
@@ -98,9 +105,25 @@ function checkForChange() {
     }
     else {
       console.log("Wrong combination, try again")
+      wrongNumberCheck ();
     }
+    
   }
   
   
 }
 
+function wrongNumberCheck () {
+  if (document.getElementById("inputOne").value !== 1 || document.getElementById("inputOne").value !== 2 || document.getElementById("inputOne").value !== 3 || document.getElementById("inputOne").value !== 4) {
+    console.log("Input field one needs a number between 1 and 4")
+  }
+  if (document.getElementById("inputTwo").value !== 1 || document.getElementById("inputTwo").value !== 2 || document.getElementById("inputTwo").value !== 3 || document.getElementById("inputTwo").value !== 4) {
+    console.log("Input field two needs a number between 1 and 4")
+  }
+  if (document.getElementById("inputThree").value !== 1 || document.getElementById("inputThree").value !== 2 || document.getElementById("inputThree").value !== 3 || document.getElementById("inputThree").value !== 4) {
+    console.log("Input field three needs a number between 1 and 4")
+  }
+  if (document.getElementById("inputFour").value !== 1 || document.getElementById("inputFour").value !== 2 || document.getElementById("inputFour").value !== 3 || document.getElementById("inputFour").value !== 4) {
+    console.log("Input field four needs a number between 1 and 4")
+  }
+}
