@@ -3,8 +3,9 @@ export default function Filter({ searchFilter, setSearchFilter }) {
     <>
       {/* TODO: Få filter til å virke */}
       <label className="search" htmlFor="search">
-        Søk:
         <input
+          size="15"
+          className="inSearch"
           data-testid="search"
           id="search"
           name="search"
