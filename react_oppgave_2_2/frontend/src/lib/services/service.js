@@ -9,11 +9,12 @@ const serviceFields = `
     preAmble,
     PortableText,
     box,
+    _createdAt,
 `
 
 export const getServices = async () => {
   const data = await client.fetch(
-    `*[_type in ["service", "newService"]]{${serviceFields}}`
+    `*[_type in ["service", "newService"] | order(_createdAt desc)]{${serviceFields}}`
   )
   return data
 }
