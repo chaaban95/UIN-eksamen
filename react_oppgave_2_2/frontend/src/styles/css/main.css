@@ -88,6 +88,10 @@ nav ul {
   background-color: mediumturquoise;
 }
 
+.btn:active {
+  transform: scale(0.98);
+}
+
 .hero {
   background-color: #ebf0f4;
   display: flex;
@@ -149,4 +153,45 @@ nav ul {
   display: flex;
   justify-content: space-between;
   padding: 100px 50px 20px 50px;
+}
+
+.newSTitle {
+  margin-bottom: 20px;
+}
+
+.cite2 {
+  display: flex;
+  flex-direction: column;
+}
+
+.ceo2 {
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  gap: 15px;
+}
+
+.form label {
+  display: flex;
+  flex-direction: column;
+}
+
+.form label span {
+  font-weight: 600;
+}
+
+.form label input,
+.form label select {
+  border-radius: 7px;
+}
+
+.align {
+  margin-top: 15px;
+  align-self: flex-start;
+  padding: 10px 40px;
 }

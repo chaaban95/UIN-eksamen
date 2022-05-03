@@ -56,13 +56,21 @@ export default function Create() {
 
   return (
     <main>
-      <h2 data-testid="title">Ny tjeneste</h2>
-      <section>
-        <span>"Hvis vi ikke har en tjeneste, så lager vi en"</span>
-        <span>CEO, Tjenesteweb</span>
+      <h2 className="newSTitle" data-testid="title">
+        Ny tjeneste
+      </h2>
+      <section className="cite2">
+        <cite>"Hvis vi ikke har en tjeneste, så lager vi en"</cite>
+        <span className="ceo2">CEO, Tjenesteweb</span>
       </section>
       {/* TODO: Gjør det mulig å sende skjema med alt av verdier */}
-      <form data-testid="form" onSubmit={handleSubmit} method="POST" action="#">
+      <form
+        className="form"
+        data-testid="form"
+        onSubmit={handleSubmit}
+        method="POST"
+        action="#"
+      >
         <label htmlFor="title">
           <span>Tittel*</span>
           <input
@@ -131,7 +139,7 @@ export default function Create() {
             ))}
           </select>
         </label>
-        <button data-testid="form_submit" type="submit">
+        <button className="align btn" data-testid="form_submit" type="submit">
           {loading ? 'Lager...' : 'Lag tjeneste'}
         </button>
         {/* TODO: Vis riktig p avhengig av tilstanden */}
