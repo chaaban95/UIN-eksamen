@@ -15,6 +15,7 @@ export default function Card({ data, searchFilter }) {
           className="service"
           key={service.slug}
           data-testid="service_wrapper"
+          style={{ backgroundColor: service?.box }}
         >
           <h3 data-testid="services_title">{service?.title}</h3>
           <p data-testid="services_preamble">{service?.preAmble}</p>

@@ -12,7 +12,7 @@ export default function Navigation() {
   return (
     <header>
       <nav>
-        <h1 data-testid="logo">
+        <h1 className="logo" data-testid="logo">
           <NavLink style={linkStyle} to="/" data-testid="logo_link">
             Tjenesteweb
           </NavLink>
