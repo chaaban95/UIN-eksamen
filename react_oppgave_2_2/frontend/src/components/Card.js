@@ -19,7 +19,11 @@ export default function Card({ data, searchFilter }) {
         >
           <h3 data-testid="services_title">{service?.title}</h3>
           <p data-testid="services_preamble">{service?.preAmble}</p>
-          <Link to={`/services/${service.slug}`} data-testid="services_url">
+          <Link
+            to={`/services/${service.slug}`}
+            className="link"
+            data-testid="services_url"
+          >
             Til tjeneste
           </Link>
         </article>

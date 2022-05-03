@@ -135,8 +135,19 @@ nav ul {
 }
 
 .service {
-  background-color: dodgerblue;
+  display: flex;
+  flex-direction: column;
   padding: 20px;
+}
+
+.service p {
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+.link {
+  margin-top: auto;
+  text-decoration: underline;
 }
 
 .footer {
