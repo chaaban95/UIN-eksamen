@@ -85,6 +85,11 @@ function generateNumber() {
 //Denne funksjonen skjer hver gang man endrer et av input feltene, når det skjer en endring så må vi sjekke om kombinasjonen er riktig, eller feil og eventuelt hva som er feil. 
 function checkForChange() {
   const button = document.getElementById("test");
+  inputOne.style.borderColor = button.style.borderColor;
+  inputTwo.style.borderColor = button.style.borderColor;
+  inputThree.style.borderColor = button.style.borderColor;
+  inputFour.style.borderColor = button.style.borderColor;
+
 
   if(button.textContent == correctText) {
     setup();
@@ -93,10 +98,10 @@ function checkForChange() {
   }
 
   // Her lager vi en ny liste, hver gang vi oppdaterer input feltene så blir verdien i input feltet lagt inn i listen. 
-  guessNumberArr[0] = document.getElementById("inputOne").value
-  guessNumberArr[1] = document.getElementById("inputTwo").value
-  guessNumberArr[2] = document.getElementById("inputThree").value
-  guessNumberArr[3] = document.getElementById("inputFour").value
+  guessNumberArr[0] = inputOne.value
+  guessNumberArr[1] = inputTwo.value
+  guessNumberArr[2] = inputThree.value
+  guessNumberArr[3] = inputFour.value
 
   const langIf = guessNumberArr.indexOf("1") !== -1 || guessNumberArr.indexOf("2") !== -1 || guessNumberArr.indexOf("3") !== -1 || guessNumberArr.indexOf("4") !== -1;
 
@@ -122,22 +127,31 @@ function checkForChange() {
     } else {
       button.style.backgroundColor = failColor;
       button.innerText = failText;
+      wrongNumberCheck();
     }
   }
 }
 
+const checkElement = (element) => {
+  return element.value !== 1 || element.value !== 2 || element.value !== 3 || element.value !== 4;
+}
+
 function wrongNumberCheck () {
-  if (document.getElementById("inputOne").value !== 1 || document.getElementById("inputOne").value !== 2 || document.getElementById("inputOne").value !== 3 || document.getElementById("inputOne").value !== 4) {
+  if (checkElement(inputOne)) {
     console.log("Input field one needs a number between 1 and 4")
+    inputOne.style.borderColor = failColor;
   }
-  if (document.getElementById("inputTwo").value !== 1 || document.getElementById("inputTwo").value !== 2 || document.getElementById("inputTwo").value !== 3 || document.getElementById("inputTwo").value !== 4) {
+  if (checkElement(inputTwo)) {
     console.log("Input field two needs a number between 1 and 4")
+    inputTwo.style.borderColor = failColor;
   }
-  if (document.getElementById("inputThree").value !== 1 || document.getElementById("inputThree").value !== 2 || document.getElementById("inputThree").value !== 3 || document.getElementById("inputThree").value !== 4) {
+  if (checkElement(inputThree)) {
     console.log("Input field three needs a number between 1 and 4")
+    inputThree.style.borderColor = failColor;
   }
-  if (document.getElementById("inputFour").value !== 1 || document.getElementById("inputFour").value !== 2 || document.getElementById("inputFour").value !== 3 || document.getElementById("inputFour").value !== 4) {
+  if (checkElement(inputFour)) {
     console.log("Input field four needs a number between 1 and 4")
+    inputFour.style.borderColor = failColor;
   }
 }
 
