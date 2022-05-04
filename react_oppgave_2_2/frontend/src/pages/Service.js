@@ -31,7 +31,7 @@ export default function Service() {
   if (loading) return <div>Henter data.. </div>
 
   return (
-    <div className="servicesWC">
+    <div className="servicesWC" style={{ borderTop: `5px solid ${data?.box}` }}>
       <main>
         <h2 data-testid="service_title">{data?.title}</h2>
         <section className="cite3">
