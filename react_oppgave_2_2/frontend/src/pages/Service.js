@@ -31,7 +31,7 @@ export default function Service() {
   if (loading) return <div>Henter data.. </div>
 
   return (
-    <div className="servicesWC" style={{ borderTop: `5px solid ${data?.box}` }}>
+    <div className="servicesWC">
       <main>
         <h2 data-testid="service_title">{data?.title}</h2>
         <section className="cite3">
@@ -60,7 +60,11 @@ export default function Service() {
       </main>
       <aside>
         {/* TODO: Bytte ut Farge med riktig dynamisk verdi */}
-        <div data-testid="service_box" data-color="Farge">
+        <div
+          data-testid="service_box"
+          data-color={data?.box}
+          style={{ borderBottom: `5px solid ${data?.box}` }}
+        >
           <img
             className="images"
             src={data?.image?.asset?.url}
