@@ -7,6 +7,7 @@ export default function Card({ data, searchFilter }) {
   let filteredData = []
 
   searchFilter ? (filteredData = filtered) : (filteredData = data)
+
   return (
     <section className="services" data-testid="services">
       {/* TODO: Bruk .map til å skrive ut tjenester */}

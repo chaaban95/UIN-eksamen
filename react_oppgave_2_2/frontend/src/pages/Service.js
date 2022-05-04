@@ -31,23 +31,27 @@ export default function Service() {
   if (loading) return <div>Henter data.. </div>
 
   return (
-    <>
+    <div className="servicesWC">
       <main>
         <h2 data-testid="service_title">{data?.title}</h2>
-        <section>
+        <section className="cite3">
           {/* TODO: Bytte ut med riktig dynamisk verdi */}
-          <span data-testid="service_slogan">{data?.slogan}</span>
-          <span>CEO, Tjenesteweb</span>
+          <cite data-testid="service_slogan">{data?.slogan}</cite>
+          <span className="ceo3">CEO, Tjenesteweb</span>
         </section>
         <section>
           {/* TODO: Bytte ut med riktig dynamisk verdi */}
-          <p data-testid="service_preamble">{data?.preAmble}</p>
+          <p className="preAmble" data-testid="service_preamble">
+            {data?.preAmble}
+          </p>
           {/* TODO: Bytte ut med riktig dynamisk verdi */}
           <h3 data-testid="service_content_title">
             {data?.InitialContent?.title}
           </h3>
           {/* TODO: Bytte ut med riktig dynamisk verdi */}
-          <p data-testid="service_content_text">{data?.InitialContent?.text}</p>
+          <p className="initialContent" data-testid="service_content_text">
+            {data?.InitialContent?.text}
+          </p>
           <article data-testid="service_text">
             {/* Her kommer tekst fra "text" laget i Ny */}
             <RichTextContent data={data?.PortableText} />
@@ -57,9 +61,13 @@ export default function Service() {
       <aside>
         {/* TODO: Bytte ut Farge med riktig dynamisk verdi */}
         <div data-testid="service_box" data-color="Farge">
-          Boks design
+          <img
+            className="images"
+            src={data?.image?.asset?.url}
+            alt={data?.title}
+          />
         </div>
       </aside>
-    </>
+    </div>
   )
 }

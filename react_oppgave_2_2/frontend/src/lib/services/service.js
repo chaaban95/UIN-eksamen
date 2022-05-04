@@ -9,7 +9,7 @@ const serviceFields = `
     preAmble,
     PortableText,
     box,
-    _createdAt,
+    'image': mainImage{alternativeText, caption, asset->{url}},
 `
 
 export const getServices = async () => {

@@ -25,6 +25,14 @@ export default {
       type: "string",
     },
     {
+      name: "mainImage",
+      title: "Main image",
+      type: "image",
+      options: {
+        hotspot: true,
+      },
+    },
+    {
       name: "preAmble",
       title: "Preamble",
       type: "string",

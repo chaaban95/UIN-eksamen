@@ -107,6 +107,7 @@ nav ul {
 }
 
 .ceo {
+  font-size: small;
   display: block;
   font-weight: bold;
   margin-top: 10px;
@@ -165,6 +166,8 @@ nav ul {
 }
 
 .ceo2 {
+  margin-top: 10px;
+  font-size: small;
   font-weight: bold;
   margin-bottom: 40px;
 }
@@ -196,10 +199,67 @@ nav ul {
   padding: 10px 40px;
 }
 
+.servicesWC {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.servicesWC main {
+  width: 60%;
+}
+
+.servicesWC aside {
+  width: 40%;
+  padding: 10px 0;
+}
+
+.servicesWC h2 {
+  margin-bottom: 20px;
+}
+
+.cite3 {
+  display: flex;
+  flex-direction: column;
+}
+
+.ceo3 {
+  margin-top: 10px;
+  font-size: small;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.servicesWC h3 {
+  margin-bottom: 15px;
+}
+
+.preAmble {
+  margin-bottom: 30px;
+}
+
+.initialContent {
+  margin-bottom: 30px;
+}
+
 @media only screen and (max-width: 900px) {
   .circles {
     margin-right: 0px;
     max-width: 140px;
+  }
+  .servicesWC {
+    flex-direction: column;
+    align-items: center;
+  }
+  .servicesWC main {
+    width: 100%;
+  }
+  .servicesWC aside {
+    width: 100%;
+  }
+  .images {
+    width: 90%;
+    margin: 0 auto;
   }
 }
 
@@ -211,5 +271,8 @@ nav ul {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+  .images {
+    width: 100%;
   }
 }
