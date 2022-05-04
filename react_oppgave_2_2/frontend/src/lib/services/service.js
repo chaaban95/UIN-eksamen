@@ -14,7 +14,7 @@ const serviceFields = `
 
 export const getServices = async () => {
   const data = await client.fetch(
-    `*[_type in ["service", "newService"] | order(_createdAt desc)]{${serviceFields}}`
+    `*[_type in ["service", "newService"]]| order(_createdAt asc){${serviceFields}}`
   )
   return data
 }
