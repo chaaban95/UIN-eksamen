@@ -68,7 +68,7 @@ export default function Service() {
           <img
             className="images"
             src={data?.image?.asset?.url}
-            alt={data?.title}
+            alt={`Bilde av ${data?.title}`}
           />
         </div>
       </aside>
