@@ -32,3 +32,197 @@
 
 // #### START HER ####
 const startHere = "Her kommer din kode";
+var stepActive = document.getElementsByClassName('step active');
+var stepNotActive = document.getElementsByClassName("step");
+//Knapper og steg som skal vises og ikke vises
+const nextButtonId = document.getElementById("next");
+const prevButtonId = document.getElementById("prev");
+const submitButtonId = document.getElementById("send");
+const stepOneId = document.getElementById("step_one");
+const stepTwoId = document.getElementById("step_two");
+const stepThreeId = document.getElementById("step_three");
+const errorId = document.getElementsByClassName("error");
+//Inputs
+const inputOne = document.getElementById("name");
+const inputTwo = document.getElementById("email");
+const inputThree = document.getElementById("age");
+
+
+
+//Farge på steg legges til når siden åpnes.
+updateStepColor();
+//Input feltene blir blanke, tilfelle man laster siden på nytt og hadde skrevet noe i de tidligere
+inputOne.value = '';
+inputTwo.value = '';
+inputThree.value = '';
+
+const submittedText = document.createElement("h1");
+
+nextButtonId.addEventListener("click", nextButton);
+prevButtonId.addEventListener("click", prevButton);
+submitButtonId.addEventListener("click", function(event) {
+  event.preventDefault()
+  submitted();
+});
+
+function nextButton() {
+  //onclick next button
+  //Needs to check what step we are on and move forward one
+  for (var i = 0; i < stepActive.length; i++) {
+    if (stepActive[i].innerHTML == 1) {
+      //Add function to change from step 1 to step 2
+      if (inputOne.value == '' || isNaN(inputOne.value) == false || inputOne.value.length < 10) {
+        errorId[0].hidden = false;
+        break;
+      } else {
+        errorId[0].hidden = true;
+        stepTwo();
+        break;
+      }
+    }
+    if (stepActive[i].innerHTML == 2) {
+      if (inputTwo.value == '' || inputTwo.value.includes("@") == false) {
+        errorId[1].hidden = false;
+        break;
+      } else {
+        errorId[1].hidden = true;
+        stepThree();
+        break;
+      }
+    }
+  }
+  updateStepColor();
+  //Sjekke at det finnes noe i input feltet, hvis ikke kan man ikke gå videre og det vil komme en feilmelding. 
+}
+function submitted() {
+  for (var i = 0; i < stepActive.length; i++) {
+    if (stepActive[i].innerHTML == 3) {
+      if (inputThree.value == '' || isNaN(inputThree.value) == true || inputThree.value < 20) {
+        errorId[2].hidden = false;
+        break;
+      } else {
+        errorId[2].hidden = true;
+        document.querySelector('div').hidden = true;
+        submittedText.innerHTML = "Thank you for submitting!";
+        document.body.appendChild(submittedText);
+        break;
+      }
+    }
+  }
+}
+function prevButton() {
+  for (var i = 0; i < stepActive.length; i++) {
+    if (stepActive[i].innerHTML == 2) {
+      stepOne();
+    }
+    if (stepActive[i].innerHTML == 3) {
+      stepTwo();
+    }
+  }
+  updateStepColor();
+}
+
+function stepOne() {
+  stateOfStepOne();
+
+  for (var i = 0; i < stepActive.length; i++) {
+    if (stepActive[i].innerHTML == 2 || stepActive[i].innerHTML == 3)
+    stepActive[i].className = "step";
+    
+  }
+  for (var i = 0; i < stepNotActive.length; i++) {
+    if (stepNotActive[i].innerHTML == 1) {
+      stepNotActive[i].className = "step active";
+    }
+  }
+  
+}
+function stepTwo() {
+  stateOfStepTwo();
+
+  for (var i = 0; i < stepActive.length; i++) {
+    if (stepActive[i].innerHTML == 1 || stepActive[i].innerHTML == 3)
+    stepActive[i].className = "step";
+    
+  }
+  for (var i = 0; i < stepNotActive.length; i++) {
+    if (stepNotActive[i].innerHTML == 2) {
+      stepNotActive[i].className = "step active";
+    }
+  }
+}
+function stepThree() {
+  stateOfStepThree();
+  
+  for (var i = 0; i < stepActive.length; i++) {
+    if (stepActive[i].innerHTML == 1 || stepActive[i].innerHTML == 2)
+    stepActive[i].className = "step";
+    
+  }
+  for (var i = 0; i < stepNotActive.length; i++) {
+    if (stepNotActive[i].innerHTML == 3) {
+      stepNotActive[i].className = "step active";
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Global functions
+function updateStepColor() {
+  for(var i = 0; i < stepNotActive.length; i++) {
+    stepNotActive[i].style.backgroundColor = "white";
+  }
+  for(var i = 0; i < stepActive.length; i++) {
+    stepActive[i].style.backgroundColor = "rgb(25, 232, 168)";
+  }
+}
+function stateOfStepOne() {
+  prevButtonId.hidden = true;
+  stepOneId.hidden = false;
+  stepTwoId.hidden = true;
+}
+function stateOfStepTwo() {
+  prevButtonId.hidden = false;
+  nextButtonId.hidden = false;
+  submitButtonId.hidden = true;
+  stepOneId.hidden = true;
+  stepTwoId.hidden = false;
+  stepThreeId.hidden = true;
+}
+function stateOfStepThree() {
+  nextButtonId.hidden = true;
+  submitButtonId.hidden = false;
+  stepTwoId.hidden = true;
+  stepThreeId.hidden = false;
+}
+
