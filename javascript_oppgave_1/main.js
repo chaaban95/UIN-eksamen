@@ -1,5 +1,4 @@
 
-
 let singleNumber = "";
 let digits = "";
 let realDigits = "";

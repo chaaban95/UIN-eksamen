@@ -33,8 +33,8 @@ const wordList = [
   "Dra",
 ];
 
-
 // #### START HER ####
+const startHere = "Her kommer din kode";
 // Listen hvor vi skal plassere 4 unike ord fra wordList
 let randomWordArr = [];
 // Listen over tallene vi skriver inn i input feltene
@@ -44,15 +44,21 @@ let sortWordArr = [];
 let originalWordArr = [];
 let wordCompareArr = [];
 
+const inputOne = document.getElementById("inputOne");
+const inputTwo = document.getElementById("inputTwo");
+const inputThree = document.getElementById("inputThree");
+const inputFour = document.getElementById("inputFour");
+
+
 //Funksjonen som skjer når knappen trykkes
-function buttonTest() {
+function setup() {
   //Hver gang vi trykker på knappen ønsker vi å starte med en blank liste
   randomWordArr = [];
   //Fjerner verdier som ligger inne i input feltet fra tidligere forsøk
-  document.getElementById("inputOne").value = "";
-  document.getElementById("inputTwo").value = "";
-  document.getElementById("inputThree").value = "";
-  document.getElementById("inputFour").value = "";
+  inputOne.value = "";
+  inputTwo.value = "";
+  inputThree.value = "";
+  inputFour.value = "";
   //Denne funksjonen skal skjøres hver gang knappen trykkes
   generateNumber(4, 25);
   //Vi har generert 4 unike tall mellom 0-24, de tallene bruker vi til å hente ordene som befinner seg på de ulike indeksene
@@ -78,14 +84,33 @@ function generateNumber() {
 
 //Denne funksjonen skjer hver gang man endrer et av input feltene, når det skjer en endring så må vi sjekke om kombinasjonen er riktig, eller feil og eventuelt hva som er feil. 
 function checkForChange() {
+  const button = document.getElementById("test");
+  inputOne.style.borderColor = button.style.borderColor;
+  inputTwo.style.borderColor = button.style.borderColor;
+  inputThree.style.borderColor = button.style.borderColor;
+  inputFour.style.borderColor = button.style.borderColor;
+
+  if(button.textContent == failText) {
+    setup();
+    button.style.backgroundColor = "rgb(244, 244, 244)";
+    button.innerText = "Test";
+  }
+  if(button.textContent == correctText) {
+    setup();
+    button.style.backgroundColor = "rgb(244, 244, 244)";
+    button.innerText = "Test";
+  }
+
   // Her lager vi en ny liste, hver gang vi oppdaterer input feltene så blir verdien i input feltet lagt inn i listen. 
-  guessNumberArr[0] = document.getElementById("inputOne").value
-  guessNumberArr[1] = document.getElementById("inputTwo").value
-  guessNumberArr[2] = document.getElementById("inputThree").value
-  guessNumberArr[3] = document.getElementById("inputFour").value
+  guessNumberArr[0] = inputOne.value
+  guessNumberArr[1] = inputTwo.value
+  guessNumberArr[2] = inputThree.value
+  guessNumberArr[3] = inputFour.value
+
+  const langIf = guessNumberArr.indexOf("1") !== -1 || guessNumberArr.indexOf("2") !== -1 || guessNumberArr.indexOf("3") !== -1 || guessNumberArr.indexOf("4") !== -1;
 
   console.log(guessNumberArr);
-  if (guessNumberArr.indexOf("1") !== -1 || guessNumberArr.indexOf("2") !== -1 || guessNumberArr.indexOf("3") !== -1 || guessNumberArr.indexOf("4") !== -1) {
+  if (langIf) {
     wordCompareArr.splice(0, 1, originalWordArr[guessNumberArr.indexOf("1")]);
     wordCompareArr.splice(1, 1, originalWordArr[guessNumberArr.indexOf("2")]);
     wordCompareArr.splice(2, 1, originalWordArr[guessNumberArr.indexOf("3")]);
@@ -96,34 +121,46 @@ function checkForChange() {
     console.log("Please type in numbers from 1 to 4");
   }
   
-  if (guessNumberArr.indexOf("1") !== -1 && guessNumberArr.indexOf("2") !== -1 && guessNumberArr.indexOf("3") !== -1 && guessNumberArr.indexOf("4") !== -1) {
+  if (langIf) {
     
     console.log(wordCompareArr);
     
     if (JSON.stringify(sortWordArr) === JSON.stringify(wordCompareArr)) {
-      console.log("you won");
+      button.style.backgroundColor = correctColor;
+      button.innerText = correctText;
+    } else {
+      button.style.backgroundColor = failColor;
+      button.innerText = failText;
+      wrongNumberCheck();
     }
-    else {
-      console.log("Wrong combination, try again")
-      wrongNumberCheck ();
-    }
-    
   }
-  
-  
+}
+
+const checkElement = (element) => {
+  return element.value !== 1 || element.value !== 2 || element.value !== 3 || element.value !== 4;
 }
 
 function wrongNumberCheck () {
-  if (document.getElementById("inputOne").value !== 1 || document.getElementById("inputOne").value !== 2 || document.getElementById("inputOne").value !== 3 || document.getElementById("inputOne").value !== 4) {
+  if (checkElement(inputOne)) {
     console.log("Input field one needs a number between 1 and 4")
+    inputOne.style.borderColor = failColor;
   }
-  if (document.getElementById("inputTwo").value !== 1 || document.getElementById("inputTwo").value !== 2 || document.getElementById("inputTwo").value !== 3 || document.getElementById("inputTwo").value !== 4) {
+  if (checkElement(inputTwo)) {
     console.log("Input field two needs a number between 1 and 4")
+    inputTwo.style.borderColor = failColor;
   }
-  if (document.getElementById("inputThree").value !== 1 || document.getElementById("inputThree").value !== 2 || document.getElementById("inputThree").value !== 3 || document.getElementById("inputThree").value !== 4) {
+  if (checkElement(inputThree)) {
     console.log("Input field three needs a number between 1 and 4")
+    inputThree.style.borderColor = failColor;
   }
-  if (document.getElementById("inputFour").value !== 1 || document.getElementById("inputFour").value !== 2 || document.getElementById("inputFour").value !== 3 || document.getElementById("inputFour").value !== 4) {
+  if (checkElement(inputFour)) {
     console.log("Input field four needs a number between 1 and 4")
+    inputFour.style.borderColor = failColor;
   }
+}
+
+
+
+window.onload = () => {
+  setup();
 }

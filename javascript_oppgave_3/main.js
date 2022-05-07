@@ -61,7 +61,7 @@ const submittedText = document.createElement("h1");
 nextButtonId.addEventListener("click", nextButton);
 prevButtonId.addEventListener("click", prevButton);
 submitButtonId.addEventListener("click", function(event) {
-  event.preventDefault()
+  event.preventDefault();
   submitted();
 });
 
@@ -102,9 +102,7 @@ function submitted() {
         break;
       } else {
         errorId[2].hidden = true;
-        document.querySelector('div').hidden = true;
-        submittedText.innerHTML = "Thank you for submitting!";
-        document.body.appendChild(submittedText);
+        formSent();
         break;
       }
     }
@@ -165,42 +163,20 @@ function stepThree() {
     }
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+function formSent() {
+  const body = document.querySelector("main");
+  body.innerText = "Takk ditt skjema er sendt";
+  body.style.fontSize = "2rem";
+}
 
 // Global functions
 function updateStepColor() {
   for(var i = 0; i < stepNotActive.length; i++) {
+//<<<<<<< HEAD
     stepNotActive[i].style.backgroundColor = "white";
+//=======
+    stepNotActive[i].style.backgroundColor = "rgb(183, 183, 183)";
+//>>>>>>> Andrea
   }
   for(var i = 0; i < stepActive.length; i++) {
     stepActive[i].style.backgroundColor = "rgb(25, 232, 168)";
@@ -225,4 +201,7 @@ function stateOfStepThree() {
   stepTwoId.hidden = true;
   stepThreeId.hidden = false;
 }
+//<<<<<<< HEAD
 
+//=======
+//>>>>>>> Andrea

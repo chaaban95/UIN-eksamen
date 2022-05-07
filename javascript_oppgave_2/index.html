@@ -2,26 +2,29 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <link rel="stylesheet" href="./_style/style.css" />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-    <link rel="stylesheet" href="./style.scss" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Oppgave 2</title>
   </head>
   <body>
     <!-- Skal kun legge til css-klasser i HTML-en under (hvis behov) -->
-    <main>
-      <div>
-        <ul>
-          <!-- Skal fylle span med ord via JavaScript -->
-          <li><input id="inputOne" type="text" onchange="checkForChange()"/><span id="spanOne"></span></li>
-          <li><input id="inputTwo" type="text" onchange="checkForChange()"/><span id="spanTwo"></span></li>
-          <li><input id="inputThree" type="text" onchange="checkForChange()"/><span id="spanThree"></span></li>
-          <li><input id="inputFour" type="text" onchange="checkForChange()"/><span id="spanFour"></span></li>
-        </ul>
-        <!-- Skal bruke knappen til å sjekke om sorteringen er riktig -->
-        <button id="test" onclick="buttonTest()">Test</button>
-      </div>
-    </main>
+    <div>
+        <main>
+            <ul>
+                <!-- Skal fylle span med ord via JavaScript -->
+                <li>
+                  <input id="inputOne" type="text"/>
+                  <span id="spanOne"></span>
+                </li>
+                <li><input id="inputTwo" type="text"/><span id="spanTwo"></span></li>
+                <li><input id="inputThree" type="text"/><span id="spanThree"></span></li>
+                <li><input id="inputFour" type="text"/><span id="spanFour"></span></li>
+            </ul>
+            <!-- Skal bruke knappen til å sjekke om sorteringen er riktig -->
+            <button id="test" onclick="checkForChange()">Test</button>
+        </main>
+    </div>
     <script src="./main.js"></script>
   </body>
 </html>
