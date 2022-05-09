@@ -8,7 +8,7 @@ import Title from './components/Title/Title'
 export default function App() {
   // TODO: Gjør nødvendige endringer slik at 'Chocolate' vise i tittel når applikasjonen starter
   const [flavour, setFlavour] = useState('Chocolate')
-  // TODO: Gjør nødvendige endringer slik at bakgrunnen på isen er chocolate når applikasjonen starter
+  // TODO: Gjør nødvendige endringer slik at bakgrunnen på isen er chocolate når applikasjonen starterr
   const [css, setCss] = useState('chocolate')
 
   const List = [
