@@ -10,7 +10,6 @@ const Dropdown = ({list,onSelection}) => {
     })
   }
   return (
-    <React.Fragment>
         <div
           className="option"
           data-testid="flavours"
@@ -22,7 +21,6 @@ const Dropdown = ({list,onSelection}) => {
             </select>
           </label>
         </div>
-    </React.Fragment>
   )
 }
 

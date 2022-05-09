@@ -2,7 +2,6 @@ import React from "react";
 
 const IceCream = ({css}) => {
     return(
-        <React.Fragment>
             <main>
             <div className="ice-cream" data-testid="ice-cream">
           <div className="stick" />
@@ -14,7 +13,6 @@ const IceCream = ({css}) => {
           >{""}</div>
             </div> 
             </main>
-        </React.Fragment>
     )
 }
 
