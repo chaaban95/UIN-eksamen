@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import Dropdown from './components/Dropdown/Dropdown'
 import IceCream from './components/IceCream/IceCream'
-import MainLayout from './components/MainLayout/MainLayout'
+import Layout from './components/Layout/Layout'
 import OptionSection from './components/OptionSection/OptionSection'
 import Title from './components/Title/Title'
 
@@ -55,12 +55,12 @@ export default function App() {
 
   // TODO: Gjør om til komponenter. HINT: Se på testid navnene som matcher krav til komponenter
   return (
-    <MainLayout>
+    <Layout>
       <OptionSection>
         <Title value={flavour} />
         <Dropdown list={List} onSelection={handleFlavourChange} />
       </OptionSection>
       <IceCream css={css} />
-    </MainLayout>
+    </Layout>
   )
 }

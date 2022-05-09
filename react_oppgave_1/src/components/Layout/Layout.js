@@ -1,6 +1,6 @@
 import React from "react";
 
-const MainLayout = ({children}) => {
+const Layout = ({children}) => {
     return(
         <React.Fragment>
             <div className="layout" data-testid="layout">
@@ -10,4 +10,4 @@ const MainLayout = ({children}) => {
     )
 }
 
-export default MainLayout
+export default Layout
