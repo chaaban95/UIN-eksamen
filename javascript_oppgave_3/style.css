@@ -101,6 +101,7 @@ body {
   gap: 1rem;
 }
 
+
 ul {
   font-size: xx-large;
   margin: 8px;
@@ -152,22 +153,28 @@ input {
 
 #next {
   background-color: var(--green);
+  padding: 0.75rem;
 }
 
 #prev {
   background-color: var(--purple);
   border-radius: 5px;
   padding: 0.75rem;
-  transform: translateY(-140%);
 }
+
 
 #send {
   background-color: var(--blue);
-  margin-top: 0.5rem;
+  transform: translateY(59%);
 }
 
 #next, #send {
-  float: right;
   border-radius: 5px;
   padding: 0.75rem;
+  float: right;
+}
+
+form {
+  height: 80px;
+  overflow: visible;
 }
