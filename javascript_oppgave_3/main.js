@@ -71,7 +71,7 @@ function nextButton() {
   for (var i = 0; i < stepActive.length; i++) {
     if (stepActive[i].innerHTML == 1) {
       //Add function to change from step 1 to step 2
-      if (inputOne.value == '' || isNaN(inputOne.value) == false || inputOne.value.length < 10) {
+      if (inputOne.value == '' || isNaN(inputOne.value) == false || inputOne.value.length < 10 || inputOne.value.includes(" ") == false) {
         errorId[0].hidden = false;
         break;
       } else {
