@@ -44,12 +44,18 @@ let sortWordArr = [];
 let originalWordArr = [];
 let wordCompareArr = [];
 
-const inputOne = document.getElementById("inputOne");
-const inputTwo = document.getElementById("inputTwo");
-const inputThree = document.getElementById("inputThree");
-const inputFour = document.getElementById("inputFour");
+const inputOne = document.getElementsByTagName('input')[0];
+const inputTwo = document.getElementsByTagName('input')[1];
+const inputThree = document.getElementsByTagName('input')[2];
+const inputFour = document.getElementsByTagName('input')[3];
+const spanOne = document.getElementsByTagName('span')[0];
+const spanTwo = document.getElementsByTagName('span')[1];
+const spanThree = document.getElementsByTagName('span')[2];
+const spanFour = document.getElementsByTagName('span')[3];
+const testButton = document.getElementById("test");
 
 
+testButton.addEventListener("click", checkForChange);
 //Funksjonen som skjer når knappen trykkes
 function setup() {
   //Hver gang vi trykker på knappen ønsker vi å starte med en blank liste
@@ -62,10 +68,10 @@ function setup() {
   //Denne funksjonen skal skjøres hver gang knappen trykkes
   generateNumber(4, 25);
   //Vi har generert 4 unike tall mellom 0-24, de tallene bruker vi til å hente ordene som befinner seg på de ulike indeksene
-  document.getElementById("spanOne").innerHTML = wordList[randomWordArr[0]];
-  document.getElementById("spanTwo").innerHTML = wordList[randomWordArr[1]];
-  document.getElementById("spanThree").innerHTML = wordList[randomWordArr[2]];
-  document.getElementById("spanFour").innerHTML = wordList[randomWordArr[3]];
+  spanOne.innerHTML = wordList[randomWordArr[0]];
+  spanTwo.innerHTML = wordList[randomWordArr[1]];
+  spanThree.innerHTML = wordList[randomWordArr[2]];
+  spanFour.innerHTML = wordList[randomWordArr[3]];
   //Vi har enda ikke en liste med kun de fire ordene, vi har kun en med tall så denne listen inneholder de 4 ordene som ble valgt
   sortWordArr = [wordList[randomWordArr[0]], wordList[randomWordArr[1]], wordList[randomWordArr[2]], wordList[randomWordArr[3]]];
   originalWordArr = [wordList[randomWordArr[0]], wordList[randomWordArr[1]], wordList[randomWordArr[2]], wordList[randomWordArr[3]]];
@@ -100,8 +106,8 @@ function checkForChange() {
     button.style.backgroundColor = "rgb(244, 244, 244)";
     button.innerText = "Test";
   }
-
-  // Her lager vi en ny liste, hver gang vi oppdaterer input feltene så blir verdien i input feltet lagt inn i listen. 
+    
+   
   guessNumberArr[0] = inputOne.value
   guessNumberArr[1] = inputTwo.value
   guessNumberArr[2] = inputThree.value
@@ -118,9 +124,13 @@ function checkForChange() {
   }
   
   if (isNaN(guessNumberArr[0]) || isNaN(guessNumberArr[1]) || isNaN(guessNumberArr[2]) || isNaN(guessNumberArr[3])   ) {
-    console.log("Please type in numbers from 1 to 4");
+    button.style.backgroundColor = failColor;
+    button.innerText = failText;
   }
-  
+  if ((guessNumberArr[0] == "") || (guessNumberArr[1] == "") || (guessNumberArr[2] == "") || (guessNumberArr[3] == ""))    {
+    button.style.backgroundColor = failColor;
+    button.innerText = failText;
+  }
   if (langIf) {
     
     console.log(wordCompareArr);
@@ -141,6 +151,7 @@ const checkElement = (element) => {
 }
 
 function wrongNumberCheck () {
+  
   if (checkElement(inputOne)) {
     console.log("Input field one needs a number between 1 and 4")
     inputOne.style.borderColor = failColor;
