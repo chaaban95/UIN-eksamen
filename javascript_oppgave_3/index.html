@@ -14,14 +14,14 @@
         <nav>
           <ul>
             <!-- Flytt active klassen med JavaScript for å vise hvilket steg man er på (styling må lages selv) -->
-            <li class="step">1</li>
-            <li class="step active">2</li>
+            <li class="step active">1</li>
+            <li class="step">2</li>
             <li class="step">3</li>
           </ul>
         </nav>
         <form method="POST" action="#" novalidate class="form">
           <!-- Bruk hidden attr til å skjule / vise riktig steg -->
-          <section id="step_one" hidden>
+          <section id="step_one">
             <label for="name">
               Navn
               <input
@@ -35,7 +35,7 @@
             </label>
           </section>
           <!-- Bruk hidden attr til å skjule / vise riktig steg -->
-          <section id="step_two">
+          <section id="step_two" hidden>
             <label for="email">
               Email
               <input
@@ -67,7 +67,7 @@
         </form>
         <div id="buttons">
           <!-- Fjern hidden attr på #prev når vi ikke er på steg 1 -->
-          <button type="button" id="prev">Forrige</button>
+          <button hidden type="button" id="prev">Forrige</button>
           <!-- Legg til hidden attr på #next når vi er på steg 3 -->
           <button  type="button" id="next">Neste</button>
         </div>
