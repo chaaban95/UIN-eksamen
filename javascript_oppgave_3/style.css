@@ -101,6 +101,7 @@ body {
   gap: 1rem;
 }
 
+
 ul {
   font-size: xx-large;
   margin: 8px;
@@ -150,24 +151,34 @@ input {
   padding: 0.75rem;
 }
 
+
 #next {
+  position: flex;
   background-color: var(--green);
+  margin-left: 200px;
 }
 
 #prev {
   background-color: var(--purple);
   border-radius: 5px;
   padding: 0.75rem;
-  transform: translateY(-140%);
 }
+
 
 #send {
   background-color: var(--blue);
-  margin-top: 0.5rem;
+  margin-left: 200px;
+  transform: translateY(72.5%);
 }
 
 #next, #send {
-  float: right;
   border-radius: 5px;
   padding: 0.75rem;
+}
+
+form {
+  height: 85px;
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
 }

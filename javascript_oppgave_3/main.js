@@ -99,6 +99,7 @@ function submitted() {
     if (stepActive[i].innerHTML == 3) {
       if (inputThree.value == '' || isNaN(inputThree.value) == true || inputThree.value < 18) {
         errorId[2].hidden = false;
+        submitButtonId.style.transform = "translateY(10%)";
         break;
       } else {
         errorId[2].hidden = true;
