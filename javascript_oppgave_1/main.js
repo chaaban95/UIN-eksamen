@@ -1,24 +1,23 @@
 
-let singleNumber = "";
-let digits = "";
-let realDigits = "";
+let digits = [];
+let realDigits = [];
+const addButton = document.getElementById("add");
+const sortButton = document.getElementById("sort");
+sortButton.addEventListener("click", buttonSort);
+addButton.addEventListener("click", buttonAdd);
 
 function buttonAdd() {
-    singleNumber = (Math.floor(1000 + Math.random() * 9000));
-    digits = singleNumber.toString().split('');
+    for(let i = 0; i < 4; i++) {
+        digits[i] = (Math.floor(1 + Math.random() * 9))
+        document.getElementById('myList').getElementsByTagName('li')[i].innerHTML = digits[i];
+    }
     realDigits = digits.map(Number)
-    console.log(realDigits);
-    document.getElementById("numberOne").innerHTML = realDigits[0];
-    document.getElementById("numberTwo").innerHTML = realDigits[1];
-    document.getElementById("numberThree").innerHTML = realDigits[2];
-    document.getElementById("numberFour").innerHTML = realDigits[3];
 }
 
 function buttonSort() {
     realDigits.sort(function(a, b){return a - b});
-    console.log("This sorts")
-    document.getElementById("numberOne").innerHTML = realDigits[0];
-    document.getElementById("numberTwo").innerHTML = realDigits[1];
-    document.getElementById("numberThree").innerHTML = realDigits[2];
-    document.getElementById("numberFour").innerHTML = realDigits[3];
+    for(let i = 0; i < 4; i++) {
+        document.getElementById('myList').getElementsByTagName('li')[i].innerHTML = realDigits[i];
+    }
 }
+
