@@ -97,7 +97,7 @@ function nextButton() {
 function submitted() {
   for (var i = 0; i < stepActive.length; i++) {
     if (stepActive[i].innerHTML == 3) {
-      if (inputThree.value == '' || isNaN(inputThree.value) == true || inputThree.value < 20) {
+      if (inputThree.value == '' || isNaN(inputThree.value) == true || inputThree.value < 18) {
         errorId[2].hidden = false;
         break;
       } else {

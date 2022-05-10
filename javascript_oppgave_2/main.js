@@ -54,6 +54,9 @@ const spanThree = document.getElementsByTagName('span')[2];
 const spanFour = document.getElementsByTagName('span')[3];
 const testButton = document.getElementById("test");
 
+const gameOver = false;
+
+
 
 testButton.addEventListener("click", checkForChange);
 //Funksjonen som skjer når knappen trykkes
@@ -90,32 +93,32 @@ function generateNumber() {
 
 //Denne funksjonen skjer hver gang man endrer et av input feltene, når det skjer en endring så må vi sjekke om kombinasjonen er riktig, eller feil og eventuelt hva som er feil. 
 function checkForChange() {
+  console.log(sortWordArr);
   const button = document.getElementById("test");
+  guessNumberArr[0] = inputOne.value
+  guessNumberArr[1] = inputTwo.value
+  guessNumberArr[2] = inputThree.value
+  guessNumberArr[3] = inputFour.value
   inputOne.style.borderColor = button.style.borderColor;
   inputTwo.style.borderColor = button.style.borderColor;
   inputThree.style.borderColor = button.style.borderColor;
   inputFour.style.borderColor = button.style.borderColor;
 
   if(button.textContent == failText) {
-    setup();
     button.style.backgroundColor = "rgb(244, 244, 244)";
     button.innerText = "Test";
   }
-  if(button.textContent == correctText) {
-    setup();
-    button.style.backgroundColor = "rgb(244, 244, 244)";
-    button.innerText = "Test";
-  }
-    
-   
-  guessNumberArr[0] = inputOne.value
-  guessNumberArr[1] = inputTwo.value
-  guessNumberArr[2] = inputThree.value
-  guessNumberArr[3] = inputFour.value
 
+  for (let i = 0; i < 4; i++) {
+    if (guessNumberArr[i] < 1 || guessNumberArr[i] > 4) {
+      button.style.backgroundColor = failColor;
+      button.innerText = failText;
+    }
+  }
   const langIf = guessNumberArr.indexOf("1") !== -1 || guessNumberArr.indexOf("2") !== -1 || guessNumberArr.indexOf("3") !== -1 || guessNumberArr.indexOf("4") !== -1;
 
-  console.log(guessNumberArr);
+  
+  
   if (langIf) {
     wordCompareArr.splice(0, 1, originalWordArr[guessNumberArr.indexOf("1")]);
     wordCompareArr.splice(1, 1, originalWordArr[guessNumberArr.indexOf("2")]);
@@ -127,15 +130,14 @@ function checkForChange() {
     button.style.backgroundColor = failColor;
     button.innerText = failText;
   }
-  if ((guessNumberArr[0] == "") || (guessNumberArr[1] == "") || (guessNumberArr[2] == "") || (guessNumberArr[3] == ""))    {
-    button.style.backgroundColor = failColor;
-    button.innerText = failText;
-  }
   if (langIf) {
-    
-    console.log(wordCompareArr);
-    
-    if (JSON.stringify(sortWordArr) === JSON.stringify(wordCompareArr)) {
+  
+    if(button.textContent == correctText) {
+      setup();
+      button.style.backgroundColor = "rgb(244, 244, 244)";
+      button.innerText = "Test";
+      return;
+    } else if (JSON.stringify(sortWordArr) === JSON.stringify(wordCompareArr)) {
       button.style.backgroundColor = correctColor;
       button.innerText = correctText;
     } else {
@@ -144,6 +146,7 @@ function checkForChange() {
       wrongNumberCheck();
     }
   }
+ 
 }
 
 const checkElement = (element) => {
