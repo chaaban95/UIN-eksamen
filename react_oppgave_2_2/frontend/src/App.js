@@ -1,3 +1,6 @@
+import PageRoutes from './routes/PageRoutes'
+
 export default function App() {
-  return <h1>Se i starter_files og data</h1>
+  // TODO: Legg til om nødvendig logikk her
+  return <PageRoutes />
 }
